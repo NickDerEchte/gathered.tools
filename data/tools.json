@@ -1,0 +1,156 @@
+{
+  "updated": "2025-10-07",
+  "tools": [
+    {
+      "id": "uizard",
+      "name": "Uizard",
+      "url": "https://uizard.io",
+      "description": "Wireframes in Minuten, AI-gestützt.",
+      "image": "images/uizard.jpg"
+    },
+    {
+      "id": "coolors",
+      "name": "Coolors",
+      "url": "https://coolors.co",
+      "description": "Farbpaletten-Generator mit Export.",
+      "image": ""
+    },    {
+      "id": "uizard",
+      "name": "Uizard",
+      "url": "https://uizard.io",
+      "description": "Wireframes in Minuten, AI-gestützt.",
+      "image": "images/uizard.jpg"
+    },
+    {
+      "id": "coolors",
+      "name": "Coolors",
+      "url": "https://coolors.co",
+      "description": "Farbpaletten-Generator mit Export.",
+      "image": ""
+    },    {
+      "id": "uizard",
+      "name": "Uizard",
+      "url": "https://uizard.io",
+      "description": "Wireframes in Minuten, AI-gestützt. gfdkgjhdfjk gfdhj gfdukcxjg rzud g fgdag fda rsdfa fds",
+      "image": "images/uizard.jpg"
+    },
+    {
+      "id": "coolors",
+      "name": "Coolors",
+      "url": "https://coolors.co",
+      "description": "Farbpaletten-Generator mit Export.",
+      "image": ""
+    },    {
+      "id": "uizard",
+      "name": "Uizard",
+      "url": "https://uizard.io",
+      "description": "Wireframes in Minuten, AI-gestützt.",
+      "image": "images/uizard.jpg"
+    },
+    {
+      "id": "coolors",
+      "name": "Coolors",
+      "url": "https://coolors.co",
+      "description": "Farbpaletten-Generator mit Export.",
+      "image": ""
+    },    {
+      "id": "uizard",
+      "name": "Uizard",
+      "url": "https://uizard.io",
+      "description": "Wireframes in Minuten, AI-gestützt.",
+      "image": "images/uizard.jpg"
+    },
+    {
+      "id": "coolors",
+      "name": "Coolors",
+      "url": "https://coolors.co",
+      "description": "Farbpaletten-Generator mit Export.",
+      "image": "" 
+    },    {
+      "id": "uizard",
+      "name": "Uizard",
+      "url": "https://uizard.io",
+      "description": "Wireframes in Minuten, AI-gestützt.",
+      "image": "images/uizard.jpg"
+    },
+    {
+      "id": "coolors",
+      "name": "Coolors",
+      "url": "https://coolors.co",
+      "description": "Farbpaletten-Generator mit Export.",
+      "image": ""
+    },    {
+      "id": "uizard",
+      "name": "Uizard",
+      "url": "https://uizard.io",
+      "description": "Wireframes in Minuten, AI-gestützt.",
+      "image": "images/uizard.jpg"
+    },
+    {
+      "id": "coolors",
+      "name": "Coolors",
+      "url": "https://coolors.co",
+      "description": "Farbpaletten-Generator mit Export.",
+      "image": ""
+    },    {
+      "id": "uizard",
+      "name": "Uizard",
+      "url": "https://uizard.io",
+      "description": "Wireframes in Minuten, AI-gestützt.",
+      "image": "images/uizard.jpg"
+    },
+    {
+      "id": "coolors",
+      "name": "Coolors",
+      "url": "https://coolors.co",
+      "description": "Farbpaletten-Generator mit Export.",
+      "image": ""
+    },    {
+      "id": "uizard",
+      "name": "Uizard",
+      "url": "https://uizard.io",
+      "description": "Wireframes in Minuten, AI-gestützt.",
+      "image": "images/uizard.jpg"
+    },
+    {
+      "id": "coolors",
+      "name": "Coolors",
+      "url": "https://coolors.co",
+      "description": "Farbpaletten-Generator mit Export.",
+      "image": ""
+    },    {
+      "id": "uizard",
+      "name": "Uizard",
+      "url": "https://uizard.io",
+      "description": "Wireframes in Minuten, AI-gestützt.",
+      "image": "images/uizard.jpg"
+    },
+    {
+      "id": "coolors",
+      "name": "Coolors",
+      "url": "https://coolors.co",
+      "description": "Farbpaletten-Generator mit Export.",
+      "image": ""
+    },    {
+      "id": "uizard",
+      "name": "Uizard",
+      "url": "https://uizard.io",
+      "description": "Wireframes in Minuten, AI-gestützt.",
+      "image": "images/uizard.jpg"
+    },
+    {
+      "id": "coolors",
+      "name": "Coolors",
+      "url": "https://coolors.co",
+      "description": "Farbpaletten-Generator mit Export.",
+      "image": ""
+    },
+    {
+      "id": "broken",
+      "name": "Broken Img Demo",
+      "url": "https://example.com",
+      "description": "Zeigt den Fallback, weil die URL falsch ist.",
+      "image": "images/does-not-exist.jpg"
+    }
+  ]
+}
