@@ -2,24 +2,24 @@
   "updated": "2025-10-07",
   "tools": [
     {
-      "id": "uizard",
-      "name": "Uizard",
-      "url": "https://uizard.io",
-      "description": "Wireframes in Minuten, AI-gestützt.",
-      "image": "images/uizard.jpg"
+      "id": "figma",
+      "name": "Figma",
+      "url": "https://figma.com",
+      "description": "Create designs, websites and interactive prototypes collaboratively.",
+      "image": "data/images/figma.jpg"
     },
     {
       "id": "coolors",
       "name": "Coolors",
       "url": "https://coolors.co",
-      "description": "Farbpaletten-Generator mit Export.",
-      "image": ""
+      "description": "Generate color palettes with ease.<br>",
+      "image": "data/images/coolors.jpg"
     },    {
-      "id": "uizard",
-      "name": "Uizard",
-      "url": "https://uizard.io",
-      "description": "Wireframes in Minuten, AI-gestützt.",
-      "image": "images/uizard.jpg"
+      "id": "endlesstoolsio",
+      "name": "Endless Tools",
+      "url": "https://endlesstools.io/",
+      "description": "Create awesome 3d effects and animations in minutes in your browser.",
+      "image": "data/images/endlesstools.jpg"
     },
     {
       "id": "coolors",
