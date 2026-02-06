@@ -22,135 +22,38 @@
       "image": "data/images/endlesstools.jpg"
     },
     {
-      "id": "coolors",
-      "name": "Coolors",
-      "url": "https://coolors.co",
-      "description": "Farbpaletten-Generator mit Export.",
-      "image": ""
+      "id": "asciitoday",
+      "name": "ascii.today",
+      "url": "https://ascii.today",
+      "description": "A super-fast ASCII title generator.",
+      "image": "data/images/asciitoday.png"
+    },
+    {
+      "id": "haikei",
+      "name": "Haikei",
+      "url": "https://www.app.haikei.app/",
+      "description": "Generate unique SVG shapes, backgrounds, and patterns.",
+      "image": "data/images/haikei.png"
+    },
+    {
+      "id": "fontjoy",
+      "name": "FontJoy",
+      "url": "https://fontjoy.com/",
+      "description": "Font pairing generator.",
+      "image": "https://lh3.googleusercontent.com/fdDJcj3eJqgB4PPoDmTRiRb8ZCCKidk1kFELd9SKcHNOIYFNac8Qjy28TbkCmJf_P6gkGTonQtxqyOE528PJ-D9TVM5pxA"
+    },
+    {
+      "id": "phosphor",
+      "name": "Phosphor Icons",
+      "url": "https://phosphoricons.com/",
+      "description": "A flexible icon family for interfaces, diagrams, and more.",
+      "image": "https://phosphoricons.com/phosphor-opengraph.png?v=2.0.2"
     },    {
-      "id": "uizard",
-      "name": "Uizard",
-      "url": "https://uizard.io",
-      "description": "Wireframes in Minuten, AI-gestützt. gfdkgjhdfjk gfdhj gfdukcxjg rzud g fgdag fda rsdfa fds",
-      "image": "images/uizard.jpg"
-    },
-    {
-      "id": "coolors",
-      "name": "Coolors",
-      "url": "https://coolors.co",
-      "description": "Farbpaletten-Generator mit Export.",
-      "image": ""
-    },    {
-      "id": "uizard",
-      "name": "Uizard",
-      "url": "https://uizard.io",
-      "description": "Wireframes in Minuten, AI-gestützt.",
-      "image": "images/uizard.jpg"
-    },
-    {
-      "id": "coolors",
-      "name": "Coolors",
-      "url": "https://coolors.co",
-      "description": "Farbpaletten-Generator mit Export.",
-      "image": ""
-    },    {
-      "id": "uizard",
-      "name": "Uizard",
-      "url": "https://uizard.io",
-      "description": "Wireframes in Minuten, AI-gestützt.",
-      "image": "images/uizard.jpg"
-    },
-    {
-      "id": "coolors",
-      "name": "Coolors",
-      "url": "https://coolors.co",
-      "description": "Farbpaletten-Generator mit Export.",
-      "image": "" 
-    },    {
-      "id": "uizard",
-      "name": "Uizard",
-      "url": "https://uizard.io",
-      "description": "Wireframes in Minuten, AI-gestützt.",
-      "image": "images/uizard.jpg"
-    },
-    {
-      "id": "coolors",
-      "name": "Coolors",
-      "url": "https://coolors.co",
-      "description": "Farbpaletten-Generator mit Export.",
-      "image": ""
-    },    {
-      "id": "uizard",
-      "name": "Uizard",
-      "url": "https://uizard.io",
-      "description": "Wireframes in Minuten, AI-gestützt.",
-      "image": "images/uizard.jpg"
-    },
-    {
-      "id": "coolors",
-      "name": "Coolors",
-      "url": "https://coolors.co",
-      "description": "Farbpaletten-Generator mit Export.",
-      "image": ""
-    },    {
-      "id": "uizard",
-      "name": "Uizard",
-      "url": "https://uizard.io",
-      "description": "Wireframes in Minuten, AI-gestützt.",
-      "image": "images/uizard.jpg"
-    },
-    {
-      "id": "coolors",
-      "name": "Coolors",
-      "url": "https://coolors.co",
-      "description": "Farbpaletten-Generator mit Export.",
-      "image": ""
-    },    {
-      "id": "uizard",
-      "name": "Uizard",
-      "url": "https://uizard.io",
-      "description": "Wireframes in Minuten, AI-gestützt.",
-      "image": "images/uizard.jpg"
-    },
-    {
-      "id": "coolors",
-      "name": "Coolors",
-      "url": "https://coolors.co",
-      "description": "Farbpaletten-Generator mit Export.",
-      "image": ""
-    },    {
-      "id": "uizard",
-      "name": "Uizard",
-      "url": "https://uizard.io",
-      "description": "Wireframes in Minuten, AI-gestützt.",
-      "image": "images/uizard.jpg"
-    },
-    {
-      "id": "coolors",
-      "name": "Coolors",
-      "url": "https://coolors.co",
-      "description": "Farbpaletten-Generator mit Export.",
-      "image": ""
-    },    {
-      "id": "uizard",
-      "name": "Uizard",
-      "url": "https://uizard.io",
-      "description": "Wireframes in Minuten, AI-gestützt.",
-      "image": "images/uizard.jpg"
-    },
-    {
-      "id": "coolors",
-      "name": "Coolors",
-      "url": "https://coolors.co",
-      "description": "Farbpaletten-Generator mit Export.",
-      "image": ""
-    },
-    {
-      "id": "broken",
-      "name": "Broken Img Demo",
-      "url": "https://example.com",
-      "description": "Zeigt den Fallback, weil die URL falsch ist.",
-      "image": "images/does-not-exist.jpg"
+      "id": "aaa",
+      "name": "ASCII Art Archive",
+      "url": "https://www.asciiart.eu/",
+      "description": "A large collection of ASCII art drawings and other related ASCII art pictures.",
+      "image": "data/images/asciiartarchive.jpg"
     }
   ]
 }
