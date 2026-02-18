@@ -164,3 +164,12 @@ p a {
     color: #9ca3af73;
     text-decoration: underline;
 }
+
+
+.ad-banner {
+    width: 100%;
+    border-radius: 18px;
+    margin-bottom: 25px;
+    overflow: hidden;
+    -webkit-user-drag: none;
+}
