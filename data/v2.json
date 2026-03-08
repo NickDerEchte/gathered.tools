@@ -86,11 +86,21 @@
             "tags": ["art", "program", "dither", "web-design", "photo", "design", "filters & effects"]
         },
         {
-            "id": "heroicons",
-            "name": "Heroicons",
+            "id": "heroicons-v2",
+            "name": "Heroicons V2",
             "url": "https://heroicons.com/",
             "description": "Beautiful hand-crafted SVG icons, by the makers of Tailwind CSS.",
-            "image": "/data/img/heroicons.png",
+            "image": "/data/img/heroicons-v2.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["icons", "web-design", "design", "library", "resources"]
+        },
+                {
+            "id": "heroicons-v1",
+            "name": "Heroicons V1",
+            "url": "https://v1.heroicons.com/",
+            "description": "Beautiful hand-crafted SVG icons, by the makers of Tailwind CSS.",
+            "image": "/data/img/heroicons-v1.png",
             "pricing": "free",
             "highlight": false,
             "tags": ["icons", "web-design", "design", "library", "resources"]
