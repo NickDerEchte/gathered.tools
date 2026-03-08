@@ -1,42 +1,136 @@
-<!doctype html>
-<html lang="de">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gathered.tools</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="image/x-icon" href="icon.png">
 
-    <!-- INTER -->
+
+    <link rel="icon" type="image/x-icon" href="icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
         rel="stylesheet">
-    <meta name="description" content="Online and offline design tools gathered in one place. Find the perfect tool for your next project." />
+
+
+    <link rel="stylesheet" href="styles.css">
 </head>
-    <header class="topbar">
-        <img src="logo.svg" alt="gathered.tools logo" class="logo" />
-        <nav>
-            <a href="mailto:nick.figner@outlook.com" id="submitBtn">Submit a tool</a>
-            <!-- (WHY I DONT EVEN HAVE A LINK 😂) <a href="#" target="_blank" rel="noopener">Support me</a> -->
-            <a href="" target="_blank">GitHub</a>
-        </nav>
-    </header>
+
 <body>
 
-
-    <main class="container">
-        <img src="data/images/ad-banner.png" alt="A new Version of gathered.tools is on its way!" class="ad-banner" />
-        <section id="grid" class="grid" aria-live="polite"></section>
-    </main>
-    <div class="footer">
-        <p>(c) 2025 <a href="https://www.nickfigner.com" target="_blank">Nick Figner</a>.</p>
+    <div id="loading-screen">
+        <video src="data/loading.mp4" autoplay loop muted playsinline></video>
     </div>
 
-    <script src="app.js" type="module">
-        </script>
+    <!-- One-time Video Popup -->
+        <div id="welcome-popup">
+            <div class="welcome-popup-inner">
+                <video id="welcome-video" src="data/gatheredtoolsv2.mp4" autoplay muted></video>
+                <button id="close-popup-btn">&times;</button>
+            <h2><br>Welcome to gathered.tools v2!</h2>
+            </div>
+        </div>
+
+    <header>
+        <img src="data/logo.svg" alt="gathered.tools logo" class="logo">
+        <a onclick="toggleModal(true)"><img src="data/settings.svg" class="icon-buttons"></a>
+    </header>
+
+    <div id="search-container">
+        <input id="tag-search" type="text" placeholder="Search tags..." autocomplete="off">
+        <div id="tag-suggestions" class="tag-suggestions" role="listbox"></div>
+    </div>
+
+    <!--<h4>Tags:</h4>-->
+    <div id="filter-container"></div>
+
+    <main id="tools-grid">
+    
+    
+    </main>
+    
+
+
+    <div id="settings-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <a onclick="toggleModal(false)"><img src="data/close.svg" class="icon-buttons"></a>
+            </div>
+
+            <h3>Active Feeds</h3>
+            <p>For default feed use <i>data/v2.json</i></p><br>
+            <div id="feeds-list">
+            </div>
+
+
+            <div class="add-feed-form">
+                <input type="text" id="new-feed-url" placeholder="Paste feed URL here...">
+                <button onclick="addNewFeed()">Add Feed</button>
+            </div>
+
+            <h3>Feed Development</h3>
+            <p>Read the docs <a href="/docs/">here</a>.</p>
+            <h3>Credits</h3>
+            <p>Idea & Design: <a href="https://nickfigner.com" target="_blank">Nick Figner</a></p>
+            <p>Font: <a href="https://fonts.google.com/specimen/Bricolage+Grotesque" target="_blank">Bricolage
+                    Grotesque</a><br><br>
+                <p>Missing Tool? Contact me!<br>
+                    nick[dot]figner[at]outlook[dot]com<br>
+                    or hit me up on<br>
+                    <a href="https://www.instagram.com/nickmusixx/" target="_blank">Instagram</a>
+                    <p>
+
+                        <h3>Copyright</h3>
+                        <p>gathered.tools by Nick Figner<br>
+                            <a href="#">read the sotry</a><br><br>
+                            All logos are properties of their respective owners.<br><br>
+                            (c) 2026 Nick Figner. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script src="parser.js"></script>
+<script>
+// --- One-time Video Popup Logic ---
+function showWelcomePopupIfNeeded() {
+    if (localStorage.getItem('welcome_popup_shown')) return;
+    var popup = document.getElementById('welcome-popup');
+    var closeBtn = document.getElementById('close-popup-btn');
+    var vid = document.getElementById('welcome-video');
+    if (!popup || !closeBtn || !vid) return;
+
+    // Helper to close popup and set flag
+    function closePopup() {
+        popup.style.display = 'none';
+        document.body.style.overflow = '';
+        localStorage.setItem('welcome_popup_shown', '1');
+    }
+
+    // Remove any previous event listeners (defensive)
+    closeBtn.onclick = null;
+    vid.onended = null;
+    popup.onclick = null;
+
+    // Show popup
+    popup.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+
+    // Bind close actions
+    closeBtn.onclick = closePopup;
+    vid.onended = closePopup;
+    popup.onclick = function(e) {
+        if (e.target === popup) closePopup();
+    };
+
+    // Start video from beginning
+    vid.currentTime = 0;
+    vid.play();
+}
+</script>
 </body>
+<footer>
+    <p>(c) 2026 <a href="https://nickfigner.com/">Nick Figner</a>. All rights reserved.</p>
+</footer>
 
 </html>

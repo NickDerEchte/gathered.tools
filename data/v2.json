@@ -1,0 +1,509 @@
+{
+    "feed-name": "Service Worker",
+    "feed-icon": "/data/img/service/service.png",
+    "feed-author": "gathered.tools",
+    "feed-author-src": "https://gathered.tools/",
+    "updated": "recently • do not remove",
+    "tooldata-version": "v2",
+    "tools": [{
+            "id": "endlesstools",
+            "name": "Endless Tools",
+            "url": "https://endlesstools.io",
+            "description": "Create awesome 3d effects and animations in minutes in your browser.",
+            "image": "/old/data/images/endlesstools.jpg",
+            "pricing": "paid",
+            "highlight": true,
+            "tags": ["3d", "website", "design", "photo", "fsdfdsf", "resources"]
+        },
+        {
+            "id": "antlii",
+            "name": "Antlii.work",
+            "url": "https://antlii.work/index",
+            "description": "Web-based interactive tool for generative design and procedural art.",
+            "image": "/data/img/antlii.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["art", "library", "design", "filters & effects", "generative", "glitch", "photo", "video", "web-design"]
+        },
+        {
+            "id": "pixelcrash",
+            "name": "Pixelcrash",
+            "url": "https://www.pixelcrash.xyz/",
+            "description": "Create cool pixelated glitch effects and ascii animations in your browser.",
+            "image": "/data/img/pixelcrash.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["art", "ascii", "design", "photo", "glitch", "video", "filters & effects"]
+        },
+        {
+            "id": "tooooools",
+            "name": "Tooooools",
+            "url": "https://tooooools.app",
+            "description": "Tooooools (exactly 6 o's), free minimalist and lo-fi effects for image and video processing online.",
+            "image": "/data/img/tooooools.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["art", "ascii", "glitch", "web-design", "photo", "design", "video", "dither", "gradients", "filters & effects"]
+        },
+        {
+            "id": "dither-lab",
+            "name": "Dither Lab",
+            "url": "https://dither.vojta.io/",
+            "description": "Create dithered images right in your browser.",
+            "image": "/data/img/dither-lab.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["art", "dither", "web-design", "photo", "design", "filters & effects"]
+        },
+        {
+            "id": "figma-razi-ascii-dither",
+            "name": "Razi's 3D ASCII & Dither Lab",
+            "url": "https://asciilaboratory.figma.site/",
+            "description": "Create dithered images, videos and 3d models right in your browser.",
+            "image": "/data/img/figma-razi-ascii-dither.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["art", "ascii", "dither", "web-design", "photo", "3d", "video", "design", "filters & effects"]
+        },
+        {
+            "id": "diither",
+            "name": "DIITHER",
+            "url": "https://andregorayeb.gumroad.com/l/diither",
+            "description": "DIITHER is a lightweight dithering + creative FX app.",
+            "image": "/data/img/diither.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["art", "program", "dither", "web-design", "photo", "design", "filters & effects"]
+        },
+        {
+            "id": "ditherista",
+            "name": "Ditherista",
+            "url": "https://github.com/robertkist/ditherista",
+            "description": "A dithering application for Windows, Linux and macOS",
+            "image": "/data/img/ditherista.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["art", "program", "dither", "web-design", "photo", "design", "filters & effects"]
+        },
+        {
+            "id": "heroicons",
+            "name": "Heroicons",
+            "url": "https://heroicons.com/",
+            "description": "Beautiful hand-crafted SVG icons, by the makers of Tailwind CSS.",
+            "image": "/data/img/heroicons.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["icons", "web-design", "design", "library", "resources"]
+        },
+        {
+            "id": "dither-me-this",
+            "name": "Dither Me This",
+            "url": "https://doodad.dev/dither-me-this/",
+            "description": "A fast, browser-based image dithering tool.",
+            "image": "/data/img/dither-me-this.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["art", "dither", "photo", "filters & effects", "web-design"]
+        },
+        {
+            "id": "the-punch-studio",
+            "name": "The Punch Studio",
+            "url": "https://thepunch.studio/",
+            "description": "Creative design studio and digital resources.",
+            "image": "/data/img/the-punch-studio.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["design", "web-design", "assets", "resources"]
+        },
+        {
+            "id": "studio2am",
+            "name": "Studio 2AM",
+            "url": "https://studio2am.co/",
+            "description": "High-quality design assets, templates, and textures for creatives.",
+            "image": "/data/img/studio2am.png",
+            "pricing": "paid",
+            "highlight": false,
+            "tags": ["design", "assets", "templates", "photo", "resources"]
+        },
+        {
+            "id": "studio2am-free",
+            "name": "Studio 2AM Freebies",
+            "url": "https://studio2am.co/collections/free-downloads",
+            "description": "High-quality design assets, templates, and textures for creatives.",
+            "image": "/data/img/studio2am.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["design", "assets", "templates", "photo", "resources"]
+        },
+        {
+            "id": "resourceboy",
+            "name": "Resource Boy",
+            "url": "https://resourceboy.com/",
+            "description": "A massive collection of free, high-quality design resources and mockups.",
+            "image": "/data/img/resourceboy.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["design", "mockups", "assets", "free", "resources", "library"]
+        },
+        {
+            "id": "typographicposters",
+            "name": "Typographic Posters",
+            "url": "https://www.typographicposters.com/",
+            "description": "A curated directory of typographic poster inspiration.",
+            "image": "/data/img/typographicposters.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["inspiration", "typography", "design", "art", "curated"]
+        },
+        {
+            "id": "dirtyline-studio",
+            "name": "Dirtyline Studio",
+            "url": "https://dirtylinestudio.com/",
+            "description": "Creative type foundry offering unique fonts and design assets.",
+            "image": "/data/img/dirtyline-studio.png",
+            "pricing": "paid",
+            "highlight": false,
+            "tags": ["typography", "fonts", "assets", "design", "resources"]
+        },
+        {
+            "id": "dirtyline-studio-free",
+            "name": "Dirtyline Studio Freebies",
+            "url": "https://dirtylinestudio.com/freebies/",
+            "description": "Creative type foundry offering unique fonts and design assets.",
+            "image": "/data/img/dirtyline-studio.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["typography", "fonts", "assets", "design", "resources"]
+        },
+        {
+            "id": "freefaces",
+            "name": "Freefaces Gallery",
+            "url": "https://freefaces.gallery/",
+            "description": "A curated collection of free typefaces available on the web.",
+            "image": "/data/img/freefaces.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["typography", "fonts", "free", "design", "curated", "library"]
+        },
+        {
+            "id": "uncut-wtf",
+            "name": "Uncut.wtf",
+            "url": "https://uncut.wtf/",
+            "description": "A catalogue of free and open-source typefaces.",
+            "image": "/data/img/uncut-wtf.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["typography", "fonts", "free", "open-source", "library", "curated"]
+        },
+        {
+            "id": "velvetyne",
+            "name": "Velvetyne",
+            "url": "https://velvetyne.fr/",
+            "description": "Open-source type foundry creating unique and free fonts.",
+            "image": "/data/img/velvetyne.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["typography", "fonts", "free", "open-source", "resources"]
+        },
+        {
+            "id": "typotheque-le-75",
+            "name": "Typothèque Le 75",
+            "url": "https://le75.be/typotheque",
+            "description": "A specialized collection of typography resources and fonts.",
+            "image": "/data/img/typotheque-le-75.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["typography", "fonts", "design", "library", "curated"]
+        },
+        {
+            "id": "fontshare",
+            "name": "Fontshare",
+            "url": "https://www.fontshare.com/",
+            "description": "A free fonts service from Indian Type Foundry (ITF).",
+            "image": "/data/img/fontshare.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["typography", "fonts", "free", "design", "library"]
+        },
+        {
+            "id": "fontstore",
+            "name": "Fontstore",
+            "url": "https://www.fontstore.com/",
+            "description": "A comprehensive library of premium fonts.",
+            "image": "/data/img/fontstore.png",
+            "pricing": "paid",
+            "highlight": false,
+            "tags": ["typography", "fonts", "design", "paid", "library"]
+        },
+        {
+            "id": "stickers-gallery",
+            "name": "Stickers Gallery",
+            "url": "https://stickers.gallery/",
+            "description": "A showcase of beautiful sticker designs and inspiration.",
+            "image": "/data/img/stickers-gallery.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["inspiration", "art", "design", "assets", "curated"]
+        },
+        {
+            "id": "algorithms-design",
+            "name": "Algorithms.design",
+            "url": "https://algorithms.design/",
+            "description": "A directory of generative art and algorithmic design resources.",
+            "image": "/data/img/algorithms-design.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["generative", "art", "design", "inspiration", "curated", "library"]
+        },
+        {
+            "id": "mockuups-studio",
+            "name": "Mockuuups Studio",
+            "url": "https://mockuuups.studio/",
+            "description": "Drag-and-drop tool to create beautiful product mockups instantly.",
+            "image": "/data/img/mockuups-studio.png",
+            "pricing": "paid",
+            "highlight": false,
+            "tags": ["mockups", "design", "assets", "resources", "library"]
+        },
+        {
+            "id": "mockup-new",
+            "name": "Mockup.new",
+            "url": "https://mockup.new/",
+            "description": "Free Mockup generator by Mockuuups Studio.",
+            "image": "/data/img/mockuups-studio.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["mockups", "design", "assets", "resources", "library", "free"]
+        },
+        {
+            "id": "maneken-app",
+            "name": "Maneken App",
+            "url": "https://maneken.app/",
+            "description": "The browser powered mockup editor",
+            "image": "/data/img/maneken-app.png",
+            "pricing": "paid",
+            "highlight": false,
+            "tags": ["3d", "mockups", "design", "assets", "resources"]
+        },
+        {
+            "id": "maneken-app-freebies",
+            "name": "Maneken App Freebies",
+            "url": "https://maneken.app/",
+            "description": "The browser powered mockup editor with (some) free mockup templates and assets.",
+            "image": "/data/img/maneken-app.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["3d", "mockups", "design", "assets", "resources", "free"]
+        },
+        {
+            "id": "cta-gallery",
+            "name": "CTA Gallery",
+            "url": "https://cta.gallery/",
+            "description": "Curated collection of Call to Action (CTA) web design inspiration.",
+            "image": "/data/img/cta-gallery.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["web-design", "inspiration", "design", "curated", "library"]
+        },
+        {
+            "id": "supahero",
+            "name": "Supahero",
+            "url": "https://supahero.io/",
+            "description": "Hero section design inspiration for landing pages.",
+            "image": "/data/img/supahero.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["web-design", "inspiration", "landing-page", "curated", "library"]
+        },
+        {
+            "id": "minimal-gallery",
+            "name": "Minimal Gallery",
+            "url": "https://minimal.gallery/",
+            "description": "Web design gallery focused on clean and minimal interfaces.",
+            "image": "/data/img/minimal-gallery.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["web-design", "inspiration", "minimalism", "curated", "library"]
+        },
+        {
+            "id": "godly-website",
+            "name": "Godly Website",
+            "url": "https://godly.website/",
+            "description": "Astronomically good web design inspiration from all over the internet.",
+            "image": "/data/img/godly-website.png",
+            "pricing": "free",
+            "highlight": true,
+            "tags": ["web-design", "inspiration", "design", "curated", "library"]
+        },
+        {
+            "id": "typetype-freefonts",
+            "name": "TypeType Free Fonts",
+            "url": "https://typetype.org/freefonts/",
+            "description": "High-quality free fonts offered by TypeType foundry.",
+            "image": "/data/img/typetype.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["typography", "fonts", "free", "resources", "library"]
+        },
+        {
+            "id": "bestfreefonts",
+            "name": "Best Free Fonts",
+            "url": "https://bestfreefonts.com/",
+            "description": "Curated directory of the best free fonts for commercial and personal use.",
+            "image": "/data/img/bestfreefonts.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["typography", "fonts", "free", "curated", "library", "resources"]
+        },
+        {
+            "id": "pageflows",
+            "name": "Page Flows",
+            "url": "https://pageflows.com/",
+            "description": "User flow videos and screenshots to inspire UI/UX design.",
+            "image": "/data/img/pageflows.png",
+            "pricing": "paid",
+            "highlight": false,
+            "tags": ["ui/ux", "web-design", "inspiration", "video", "library", "curated"]
+        },
+        {
+            "id": "blkmarket",
+            "name": "Blkmarket",
+            "url": "https://blkmarket.com/",
+            "description": "Premium design resources, textures, and mockups.",
+            "image": "/data/img/blkmarket.png",
+            "pricing": "paid",
+            "highlight": false,
+            "tags": ["assets", "design", "mockups", "textures", "resources", "library"]
+        },
+        {
+            "id": "blkmarket-free",
+            "name": "Blkmarket Free",
+            "url": "https://blkmarket.com/product-category/free/",
+            "description": "Free design resources, textures, and mockups.",
+            "image": "/data/img/blkmarket-free.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["assets", "design", "mockups", "textures", "resources", "library"]
+        },
+        {
+            "id": "beta-blkmarket",
+            "name": "BETA Blkmarket",
+            "url": "https://beta.blkmarket.com/",
+            "description": "Premium design resources, textures, and mockups.",
+            "image": "/data/img/beta-blkmarket.png",
+            "pricing": "paid",
+            "highlight": false,
+            "tags": ["assets", "design", "mockups", "textures", "resources", "library"]
+        },
+        {
+            "id": "beta-blkmarket-free",
+            "name": "BETA Blkmarket Freebies",
+            "url": "https://beta.blkmarket.com/free",
+            "description": "Premium design resources, textures, and mockups.",
+            "image": "/data/img/beta-blkmarket-free.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["assets", "design", "mockups", "textures", "resources", "library"]
+        },
+        {
+            "id": "cargo-site",
+            "name": "Cargo",
+            "url": "https://cargo.site/",
+            "description": "Professional site building platform for designers and artists.",
+            "image": "/data/img/cargo-site.png",
+            "pricing": "paid",
+            "highlight": false,
+            "tags": ["web-design", "portfolio", "builder", "design", "resources"]
+        },
+        {
+            "id": "death-to-stock",
+            "name": "Death to Stock",
+            "url": "https://deathtothestockphoto.com/",
+            "description": "Non-traditional, premium stock photography for creatives.",
+            "image": "/data/img/death-to-stock.png",
+            "pricing": "paid",
+            "highlight": false,
+            "tags": ["photo", "assets", "inspiration", "stock", "library"]
+        },
+        {
+            "id": "effect-app",
+            "name": "Effect.app",
+            "url": "https://effect.app/",
+            "description": "Digital effects and creative processing tools.",
+            "image": "/data/img/effect-app.png",
+            "pricing": "paid",
+            "highlight": false,
+            "tags": ["filters & effects", "design", "art", "photo", "video"]
+        },
+        {
+            "id": "effect-app-free",
+            "name": "Effect.app Free",
+            "url": "https://effect.app/",
+            "description": "Free digital effects and creative processing tools.",
+            "image": "/data/img/effect-app.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["filters & effects", "design", "art", "photo", "video", "free"]
+        },
+        {
+            "id": "same-energy",
+            "name": "Same Energy",
+            "url": "https://same.energy/",
+            "description": "Visual search engine for design inspiration and moodboards.",
+            "image": "/data/img/same-energy.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["search", "inspiration", "photo", "library", "curated", "design"]
+        },
+        {
+            "id": "cosmos-so",
+            "name": "Cosmos",
+            "url": "https://cosmos.so/",
+            "description": "A curated Pinterest alternative tailored for designers and creatives.",
+            "image": "/data/img/cosmos-so.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["inspiration", "curated", "library", "design", "moodboard", "photo"]
+        },
+        {
+            "id": "internet-archive-book-images",
+            "name": "Internet Archive Book Images",
+            "url": "https://www.flickr.com/photos/internetarchivebookimages/",
+            "description": "Millions of vintage book illustrations and images available for free.",
+            "image": "/data/img/internet-archive-book-images.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["photo", "stock", "library", "art", "vintage", "resources"]
+        },
+        {
+            "id": "library-obys-agency",
+            "name": "Obys Agency Library",
+            "url": "https://library.obys.agency/",
+            "description": "Educational library and resources curated by the Obys design agency.",
+            "image": "/data/img/library-obys-agency.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["typography", "web-design", "curated", "library", "resources", "inspiration"]
+        },
+        {
+            "id": "neurascapes",
+            "name": "Neurascapes",
+            "url": "https://neurascapes.com/",
+            "description": "High-quality generated visual assets and landscape resources.",
+            "image": "/data/img/neurascapes.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["ai", "photo", "stock", "backgrounds", "resources", "design"]
+        },
+        {
+            "id": "bdfm",
+            "name": "BDFM",
+            "url": "https://bdfm.com/",
+            "description": "Curated collection of digital resources and design inspiration.",
+            "image": "/data/img/bdfm.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["design", "inspiration", "curated", "resources", "library"]
+        }
+    ]
+}

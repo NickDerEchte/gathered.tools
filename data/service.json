@@ -1,0 +1,68 @@
+{
+  "feed-name": "Service Worker",
+  "feed-icon": "/data/img/service/service.png",
+  "feed-author": "gathered.tools",
+  "feed-author-src": "https://gathered.tools/",
+  "updated": "recently • do not remove",
+  "tooldata-version": "v2",
+  "tools": [
+    {
+      "id": "gtservice-docs",
+      "name": "Create your own feed",
+      "url": "https://gathered.tools/docs",
+      "description": "Documentation of how to create your own feed for gathered.tools.",
+      "image": "/data/img/service/docs.jpg",
+      "pricing": "free",
+      "highlight":false,
+      "tags": [
+        "gathered.tools",
+        "docs",
+        "service",
+        "built-in"]
+    },
+    {
+      "id": "gtservice-story",
+      "name": "Story",
+      "url": "https://nickfigner.com/stories/gathered-tools",
+      "description": "The story behind gathered.tools",
+      "image": "/data/img/service/story.jpg",
+      "pricing": "free",
+      "highlight":false,
+      "tags": [
+        "gathered.tools",
+        "story",
+        "service",
+        "built-in"]
+    },
+        {
+      "id": "gtservice-nickfigner",
+      "name": "Nick Figner",
+      "url": "https://nickfigner.com/",
+      "description": "Learn more about me, the creator.",
+      "image": "/data/img/service/nickfigner.jpg",
+      "pricing": "free",
+      "highlight":false,
+      "tags": [
+        "gathered.tools",
+        "Nick Figner",
+        "nickfigner",
+        "service",
+        "built-in"]
+    },
+    {
+      "id": "gtservice-missingtool",
+      "name": "Missing Tool?",
+      "url": "https://gathered.tools/",
+      "description": "Submit a tool to be added to the feed or report any issues you find.",
+      "image": "/data/img/service/missingtool.jpg",
+      "pricing": "free",
+      "highlight":true,
+      "tags": [
+        "gathered.tools",
+        "Missing Tool",
+        "service",
+        "built-in"]
+    }
+       
+  ]
+}

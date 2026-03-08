@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed Development - gathered.tools</title>
+    <link rel="icon" type="image/x-icon" href="/icon.png">
+    <link rel="stylesheet" href="nmd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* --- VIEWER OVERRIDES --- */
+        /* These styles override the default split-screen layout 
+           to create a centered, read-only document view. */
+
+        #editor-pane,
+        #resizer {
+            display: none !important;
+            /* Hide the editor and drag bar */
+        }
+
+        .container {
+            justify-content: center;
+            background-color: var(--bg);
+        }
+
+        #preview-pane {
+            width: 100%;
+            max-width: 850px;
+            /* Limit width for better readability */
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Adjust margin for the title in viewer mode */
+        .native-header {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="..">
+    <img src="/data/logo.svg" alt="gathered.tools logo" class="logo" style="position: fixed; top: 20px; left: 20px; height: 30px; z-index: 1000; -webkit-user-drag: none;">
+    </a>
+
+    <div class="container">
+        <div id="editor-pane" class="pane">
+            <textarea id="editor"></textarea>
+        </div>
+        <div id="resizer"></div>
+
+        <div id="preview-pane" class="pane">
+            <div id="preview-content">Loading...</div>
+        </div>
+    </div>
+
+    <script src="nmd.js"></script>
+
+    <script>
+        /**
+         * LOADER SCRIPT
+         * This runs after nmd.js to load the specific 'index.md' file
+         * and render it using the parseNative() function from nmd.js.
+         */
+        fetch('index.md')
+            .then(response => {
+                if (!response.ok) throw new Error(`Could not load file: ${response.statusText}`);
+                return response.text();
+            })
+            .then(text => {
+                // 1. Render the Markdown
+                const html = parseNative(text);
+
+                // 2. Inject into the preview pane
+                document.getElementById('preview-content').innerHTML = html;
+
+                // 3. Update the hidden editor (optional, keeps internal state consistent)
+                document.getElementById('editor').value = text;
+            })
+            .catch(error => {
+                document.getElementById('preview-content').innerHTML = `
+                <div style="color: #f87171; text-align: center; margin-top: 50px;">
+                    <h3>Error Loading Document</h3>
+                    <p>Make sure <code>index.md</code> exists in this folder.</p>
+                    <small>${error.message}</small>
+                </div>
+            `;
+            });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+{
+  "feed-name": "add things",
+  "feed-icon": "/data/fallback.jpg",
+  "feed-author": "Nick Figner",
+  "feed-author-src": "https://nickfigner.com/",
+  "updated": "2025-10-07",
+  "tooldata-version": "v2",
+  "tools": [
+    {
+      "id": "endlesstools",
+      "name": "Endless Tools",
+      "url": "https://endlesstools.io",
+      "description": "Create awesome 3d effects and animations in minutes in your browser.",
+      "image": "/old/data/images/endlesstools.jpg",
+      "pricing": "paid",
+      "highlight":true,
+      "tags": [
+        "3d",
+        "website",
+        "design",
+        "fsdfdsf"]
+    },
+        {
+      "id": "fallback",
+      "name": "Fallback",
+      "url": "https://endlesstools.io",
+      "description": "Create awesome 3d effects and animations in minutes in your browser.",
+      "image": "/old/data/images/sdfsdf.jpg",
+      "pricing": "paidfd",
+      "highlight":false,
+      "tags": [
+        "3d",
+        "website",
+        "design",
+        "filters & effects"]
+    }
+  ]
+}
