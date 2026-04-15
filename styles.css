@@ -469,6 +469,8 @@ button:active {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1.5rem;
+    /* position: sticky;
+    top: 0; */
 }
 
 .feed-item {

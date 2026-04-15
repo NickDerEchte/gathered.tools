@@ -1,9 +1,9 @@
 {
-    "feed-name": "Service Worker",
-    "feed-icon": "/data/img/service/service.png",
-    "feed-author": "gathered.tools",
-    "feed-author-src": "https://gathered.tools/",
-    "updated": "recently • do not remove",
+    "feed-name": "gathered.tools default",
+    "feed-icon": "/icon.png",
+    "feed-author": "Nick Figner",
+    "feed-author-src": "https://nickfigner.com/",
+    "updated": "2026-03-08",
     "tooldata-version": "v2",
     "tools": [{
             "id": "endlesstools",
@@ -12,7 +12,7 @@
             "description": "Create awesome 3d effects and animations in minutes in your browser.",
             "image": "/old/data/images/endlesstools.jpg",
             "pricing": "paid",
-            "highlight": true,
+            "highlight": false,
             "tags": ["3d", "website", "design", "photo", "fsdfdsf", "resources"]
         },
         {
@@ -120,7 +120,7 @@
             "name": "The Punch Studio",
             "url": "https://thepunch.studio/",
             "description": "Creative design studio and digital resources.",
-            "image": "/data/img/the-punch-studio.png",
+            "image": "/data/img/thepunch.png",
             "pricing": "free",
             "highlight": false,
             "tags": ["design", "web-design", "assets", "resources"]
@@ -140,7 +140,7 @@
             "name": "Studio 2AM Freebies",
             "url": "https://studio2am.co/collections/free-downloads",
             "description": "High-quality design assets, templates, and textures for creatives.",
-            "image": "/data/img/studio2am.png",
+            "image": "/data/img/studio2am-free.png",
             "pricing": "free",
             "highlight": false,
             "tags": ["design", "assets", "templates", "photo", "resources"]
@@ -170,7 +170,7 @@
             "name": "Dirtyline Studio",
             "url": "https://dirtylinestudio.com/",
             "description": "Creative type foundry offering unique fonts and design assets.",
-            "image": "/data/img/dirtyline-studio.png",
+            "image": "/data/img/dirtylinestudio.png",
             "pricing": "paid",
             "highlight": false,
             "tags": ["typography", "fonts", "assets", "design", "resources"]
@@ -180,7 +180,7 @@
             "name": "Dirtyline Studio Freebies",
             "url": "https://dirtylinestudio.com/freebies/",
             "description": "Creative type foundry offering unique fonts and design assets.",
-            "image": "/data/img/dirtyline-studio.png",
+            "image": "/data/img/dirtylinestudio-free.png",
             "pricing": "free",
             "highlight": false,
             "tags": ["typography", "fonts", "assets", "design", "resources"]
@@ -220,7 +220,7 @@
             "name": "Typothèque Le 75",
             "url": "https://le75.be/typotheque",
             "description": "A specialized collection of typography resources and fonts.",
-            "image": "/data/img/typotheque-le-75.png",
+            "image": "/data/img/typothequele75.png",
             "pricing": "free",
             "highlight": false,
             "tags": ["typography", "fonts", "design", "library", "curated"]
@@ -256,6 +256,46 @@
             "tags": ["inspiration", "art", "design", "assets", "curated"]
         },
         {
+            "id": "coolors",
+            "name": "Coolors",
+            "url": "https://coolors.co/",
+            "description": "A simple and fast way to create color palettes.",
+            "image": "/data/img/coolors.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["colors", "art", "design", "inspiration", "curated"]
+        },
+        {
+            "id": "ascii-today",
+            "name": "ASCII Today",
+            "url": "https://ascii.today/",
+            "description": "A super-fast ASCII title generator.",
+            "image": "/data/img/ascii-today.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["ascii", "art", "design", "inspiration", "generative"]
+        },
+        {
+            "id": "phosphor-icons",
+            "name": "Phosphor Icons",
+            "url": "https://phosphoricons.com/",
+            "description": "A flexible icon family for designers and developers.",
+            "image": "/data/img/phosphor-icons.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["icons", "design", "inspiration", "resources", "library"]
+        },
+                {
+            "id": "ascii-art-archive",
+            "name": "ASCII Art Archive",
+            "url": "https://www.asciiart.eu/",
+            "description": "A large collection of ASCII art drawings and other related ASCII art pictures.",
+            "image": "/data/img/ascii-art-archive.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["ascii", "art", "inspiration", "library"]
+        },
+        {
             "id": "algorithms-design",
             "name": "Algorithms.design",
             "url": "https://algorithms.design/",
@@ -267,10 +307,10 @@
         },
         {
             "id": "mockuups-studio",
-            "name": "Mockuuups Studio",
+            "name": "Mockuuups",
             "url": "https://mockuuups.studio/",
             "description": "Drag-and-drop tool to create beautiful product mockups instantly.",
-            "image": "/data/img/mockuups-studio.png",
+            "image": "/data/img/mockuuups.png",
             "pricing": "paid",
             "highlight": false,
             "tags": ["mockups", "design", "assets", "resources", "library"]
@@ -280,30 +320,20 @@
             "name": "Mockup.new",
             "url": "https://mockup.new/",
             "description": "Free Mockup generator by Mockuuups Studio.",
-            "image": "/data/img/mockuups-studio.png",
+            "image": "/data/img/mockup-new.png",
             "pricing": "free",
             "highlight": false,
             "tags": ["mockups", "design", "assets", "resources", "library", "free"]
         },
         {
-            "id": "maneken-app",
-            "name": "Maneken App",
+            "id": "maneken",
+            "name": "Maneken",
             "url": "https://maneken.app/",
             "description": "The browser powered mockup editor",
-            "image": "/data/img/maneken-app.png",
+            "image": "/data/img/maneken.png",
             "pricing": "paid",
             "highlight": false,
             "tags": ["3d", "mockups", "design", "assets", "resources"]
-        },
-        {
-            "id": "maneken-app-freebies",
-            "name": "Maneken App Freebies",
-            "url": "https://maneken.app/",
-            "description": "The browser powered mockup editor with (some) free mockup templates and assets.",
-            "image": "/data/img/maneken-app.png",
-            "pricing": "free",
-            "highlight": false,
-            "tags": ["3d", "mockups", "design", "assets", "resources", "free"]
         },
         {
             "id": "cta-gallery",
@@ -342,7 +372,7 @@
             "description": "Astronomically good web design inspiration from all over the internet.",
             "image": "/data/img/godly-website.png",
             "pricing": "free",
-            "highlight": true,
+            "highlight": false,
             "tags": ["web-design", "inspiration", "design", "curated", "library"]
         },
         {
@@ -350,7 +380,7 @@
             "name": "TypeType Free Fonts",
             "url": "https://typetype.org/freefonts/",
             "description": "High-quality free fonts offered by TypeType foundry.",
-            "image": "/data/img/typetype.png",
+            "image": "/data/img/typetype-free.png",
             "pricing": "free",
             "highlight": false,
             "tags": ["typography", "fonts", "free", "resources", "library"]
@@ -430,7 +460,7 @@
             "name": "Death to Stock",
             "url": "https://deathtothestockphoto.com/",
             "description": "Non-traditional, premium stock photography for creatives.",
-            "image": "/data/img/death-to-stock.png",
+            "image": "/data/img/dts.png",
             "pricing": "paid",
             "highlight": false,
             "tags": ["photo", "assets", "inspiration", "stock", "library"]
@@ -460,7 +490,7 @@
             "name": "Same Energy",
             "url": "https://same.energy/",
             "description": "Visual search engine for design inspiration and moodboards.",
-            "image": "/data/img/same-energy.png",
+            "image": "/data/img/sameenergy.png",
             "pricing": "free",
             "highlight": false,
             "tags": ["search", "inspiration", "photo", "library", "curated", "design"]
@@ -470,7 +500,7 @@
             "name": "Cosmos",
             "url": "https://cosmos.so/",
             "description": "A curated Pinterest alternative tailored for designers and creatives.",
-            "image": "/data/img/cosmos-so.png",
+            "image": "/data/img/cosmos.png",
             "pricing": "free",
             "highlight": false,
             "tags": ["inspiration", "curated", "library", "design", "moodboard", "photo"]
@@ -480,7 +510,7 @@
             "name": "Internet Archive Book Images",
             "url": "https://www.flickr.com/photos/internetarchivebookimages/",
             "description": "Millions of vintage book illustrations and images available for free.",
-            "image": "/data/img/internet-archive-book-images.png",
+            "image": "/data/img/ia-book-images.png",
             "pricing": "free",
             "highlight": false,
             "tags": ["photo", "stock", "library", "art", "vintage", "resources"]
@@ -506,14 +536,74 @@
             "tags": ["ai", "photo", "stock", "backgrounds", "resources", "design"]
         },
         {
-            "id": "bdfm",
-            "name": "BDFM",
-            "url": "https://bdfm.com/",
-            "description": "Curated collection of digital resources and design inspiration.",
-            "image": "/data/img/bdfm.png",
+            "id": "texture-fabrik",
+            "name": "Texture Fabrik",
+            "url": "https://texturefabrik.com/",
+            "description": "Free, donated Texture, Patterns, Graphics and more",
+            "image": "/data/img/texture-fabrik.png",
             "pricing": "free",
             "highlight": false,
-            "tags": ["design", "inspiration", "curated", "resources", "library"]
+            "tags": ["library", "photo", "textures", "backgrounds", "resources", "design"]
+        },
+                {
+            "id": "texturelabs",
+            "name": "Texturelabs",
+            "url": "https://texturelabs.org/",
+            "description": "Textures and techniques for art and design.",
+            "image": "/data/img/texturelabs.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["library", "photo", "textures", "backgrounds", "resources", "design"]
+        },
+        {
+            "id": "a1-gallery",
+            "name": "A1 Gallery",
+            "url": "https://a1.gallery/",
+            "description": "The best websites on the web - Web design inspiration for designers & developers",
+            "image": "/data/img/a1-gallery.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["library", "inspiration", "web-design", "ui/ux", "resources", "design"]
+        },
+        {
+            "id": "photogradient",
+            "name": "Photo gradient",
+            "url": "https://photogradient.com/",
+            "description": "Images to Mesh Gradients and create your own.",
+            "image": "/data/img/photogradient.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["library", "filters & effects", "web-design", "ui/ux", "assets", "design"]
+        },
+        {
+            "id": "delphi",
+            "name": "delphitools",
+            "url": "https://delphi.tools/",
+            "description": "A collection of small, low stakes and low effort tools.",
+            "image": "/data/img/delphi.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["library", "filters & effects", "web-design", "ui/ux", "assets", "design"]
+        },
+        {
+            "id": "makewordart",
+            "name": "Make Wordart",
+            "url": "https://makewordart.com/",
+            "description": "Create retro word art and text effects for your designs.",
+            "image": "/data/img/makewordart.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["retro", "typography", "web-design", "ui/ux", "assets", "design", "art", "gradients"]
+        },
+        {
+            "id": "flaredfolders",
+            "name": "FlaredFolders",
+            "url": "https://flaredfolders.com/",
+            "description": "Free, Open-Source, Folder Customization Tool.",
+            "image": "/data/img/flaredfolders.png",
+            "pricing": "free",
+            "highlight": false,
+            "tags": ["customization", "ui/ux", "design", "gradients"]
         }
     ]
 }

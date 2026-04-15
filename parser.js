@@ -56,7 +56,9 @@ async function fetchAllFeeds(urls) {
             const data = await response.json();
 
             if (data["tooldata-version"] === "v2") {
-                allTools = allTools.concat(data.tools);
+                // Attach _feedUrl to each tool for sorting later
+                const toolsWithFeed = data.tools.map(tool => ({ ...tool, _feedUrl: feedUrl }));
+                allTools = allTools.concat(toolsWithFeed);
                 feedsMetadata.push({
                     url: feedUrl,
                     name: data["feed-name"],
@@ -79,6 +81,37 @@ async function fetchAllFeeds(urls) {
         };
     }
 }
+
+
+// name (:
+
+function credits() {
+    console.log(`%c
+███╗   ██╗██╗ ██████╗██╗  ██╗                 
+████╗  ██║██║██╔════╝██║ ██╔╝                 
+██╔██╗ ██║██║██║     █████╔╝                  
+██║╚██╗██║██║██║     ██╔═██╗                  
+██║ ╚████║██║╚██████╗██║  ██╗                 
+╚═╝  ╚═══╝╚═╝ ╚═════╝╚═╝  ╚═╝                 
+%c                                              
+███████╗██╗ ██████╗ ███╗   ██╗███████╗██████╗ 
+██╔════╝██║██╔════╝ ████╗  ██║██╔════╝██╔══██╗
+█████╗  ██║██║  ███╗██╔██╗ ██║█████╗  ██████╔╝
+██╔══╝  ██║██║   ██║██║╚██╗██║██╔══╝  ██╔══██╗
+██║     ██║╚██████╔╝██║ ╚████║███████╗██║  ██║
+╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝
+%c
+(c) 2026 gathered.tools by Nick Figner. All rights reserved. nickfigner.com
+%c`,
+
+   "color: #28AFD4; font-family: monospace;", 
+   "color: #28afd494; font-family: monospace;", 
+   "background-color: #222317; color: #606140; font-family: monospace; font-weight: bold;", 
+   "");
+}
+
+window.onload = credits;
+
 
 // --- FILTERING LOGIC ---
 function setFilter(type, value) {
@@ -321,11 +354,19 @@ function renderTools() {
     }
 
     if ((!activeTags || activeTags.length === 0) && !activePricing) {
-        // 3. Sort: If no filters are active, push highlighted tools to the top!
+        // Sort: Highlighted tools first, then by newest feed order, with non-highlighted serviceFeed tools always at the bottom
         toolsToRender.sort((a, b) => {
             if (a.highlight && !b.highlight) return -1;
             if (!a.highlight && b.highlight) return 1;
-            return 0;
+            // Non-highlighted serviceFeed tools always at the bottom
+            const aIsService = !a.highlight && a._feedUrl === serviceFeed;
+            const bIsService = !b.highlight && b._feedUrl === serviceFeed;
+            if (aIsService && !bIsService) return 1;
+            if (!aIsService && bIsService) return -1;
+            // Otherwise, sort by newest feed order
+            const aFeedIdx = activeFeedUrls.lastIndexOf(a._feedUrl);
+            const bFeedIdx = activeFeedUrls.lastIndexOf(b._feedUrl);
+            return bFeedIdx - aFeedIdx;
         });
     }
 
