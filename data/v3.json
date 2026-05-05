@@ -1,0 +1,41 @@
+{
+  "feed-name": "Experimental v3 Feed",
+  "feed-icon": "https://nickfigner.com/projects/gathered-tools/gathered-tools.jpg",
+  "feed-author": "gathered.tools",
+  "feed-author-src": "https://gathered.tools/",
+  "updated": "not availible • For testing purposes only",
+  "tooldata-version": "v3",
+  "community": [
+      {
+        "id": "feed-id",
+        "name": "Gathered.tools Community",
+        "url": "https://gathered.tools/community",
+        "description": "A mid/long description of the feed.",
+        "image": "/url/to/image.jpg",
+        "pricing": "free",
+        "highlight":false,
+        "tags": [
+          "gathered.tools",
+          "community",
+          "share",
+          "feedback",
+          "connect"]
+      }
+  ],
+  "tools": [
+    {
+      "id": "tool-v3",
+      "name": "Create your own feed",
+      "url": "https://gathered.tools/docs",
+      "description": "Documentation of how to create your own feed for gathered.tools.",
+      "image": "/data/img/service/docs.jpg",
+      "pricing": "free",
+      "highlight":false,
+      "tags": [
+        "gathered.tools",
+        "docs",
+        "service",
+        "built-in"]
+    }
+  ]
+}

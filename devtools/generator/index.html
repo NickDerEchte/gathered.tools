@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed Generator - gathered.tools</title>
+
+    <link rel="icon" type="image/x-icon" href="/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+        .generator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 900px) {
+            .generator-container { grid-template-columns: 1fr; }
+        }
+
+        .generator-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--accent);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .generator-label {
+            display: block;
+            font-weight: 500;
+            margin-top: 1.2rem;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .generator-input {
+            width: 100%;
+            background: var(--bg-color);
+            color: var(--text-main);
+            border: 1px solid var(--accent);
+            padding: 0.6rem 0.8rem;
+            border-radius: var(--border-radius-sm);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+        }
+
+        .generator-input:focus {
+            outline: none;
+            border-color: var(--text-muted);
+        }
+
+        textarea.generator-input {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        select.generator-input {
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .tool-editor-card {
+            background-color: rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--accent);
+            border-radius: var(--border-radius-sm);
+            margin-bottom: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            background: var(--bg-color);
+        }
+
+        .tool-editor-card.dragging {
+            opacity: 0.5;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transform: scale(0.98);
+        }
+
+        .tool-editor-card.drag-over {
+            border-top: 3px solid var(--text-muted);
+        }
+
+        .tool-header {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: var(--card-bg);
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .drag-handle {
+            cursor: grab;
+            color: var(--text-muted);
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+            line-height: 1;
+            padding: 0 0.5rem;
+        }
+        
+        .drag-handle:active {
+            cursor: grabbing;
+        }
+
+        .tool-title {
+            font-weight: 600;
+            flex-grow: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .tool-collapse-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.9rem;
+            padding: 0.2rem 0.5rem;
+        }
+
+        .tool-collapse-btn:hover {
+            color: var(--text-main);
+            background: none;
+            transform: none;
+        }
+
+        .tool-body {
+            padding: 0 1.2rem 1.2rem 1.2rem;
+            display: block;
+        }
+
+        .tool-body.collapsed {
+            display: none;
+        }
+
+        .toolbar-generator {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            background-color: var(--card-bg);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--accent);
+            align-items: center;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-top: 1.2rem;
+            gap: 0.5rem;
+        }
+
+        .checkbox-group input {
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            accent-color: var(--text-muted);
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            color: var(--text-main);
+            cursor: pointer;
+        }
+
+        .btn-danger {
+            border-color: #ff4d4d40;
+            color: #ff6b6b;
+            margin-top: 1.5rem;
+        }
+
+        .btn-danger:hover {
+            background: #ff4d4d20;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-muted);
+        }
+
+        .btn-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #json-output {
+            background: rgba(0, 0, 0, 0.4);
+            color: #a9b7c6;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--accent);
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            white-space: pre-wrap;
+            position: sticky;
+            top: 2rem;
+            max-height: 85vh;
+            scrollbar-color: var(--accent) transparent;
+        }
+
+        .json-key { color: #9876aa; }
+        .json-string { color: #6a8759; }
+        .json-number { color: #6897bb; }
+        .json-boolean { color: #cc7832; }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-button-logo">
+            <a href="#"><button>back</button></a>
+            <img src="logo.svg" alt="gathered.tools logo" class="logo">
+        </div>
+        <a href="https://forms.gle/y5YZsGrcsmfYD4J4A" target="_blank"><button>Submit a Feed</button></a>
+    </header>
+
+    <div class="toolbar-generator">
+        <button id="download-btn">Download JSON</button>
+        <button id="upload-btn">Upload JSON</button>
+        <input type="file" id="upload-file" accept=".json" style="display: none;">
+        <div style="flex-grow: 1;"></div>
+        <span style="color: var(--text-muted); font-size: 0.85rem; margin-right: 1rem;">Auto-saves locally</span>
+        <button id="clear-cache-btn" class="btn-danger" style="margin: 0;">Clear Draft</button>
+    </div>
+
+    <div class="generator-container">
+        <div>
+            <form id="generator-form">
+                <div class="generator-section">
+                    <h2>Feed Metadata</h2>
+                    
+                    <label class="generator-label">Tooldata Version</label>
+                    <select id="tooldata-version" class="generator-input">
+                        <option value="v2">v2</option>
+                    </select>
+
+                    <label class="generator-label">Feed Name</label>
+                    <input type="text" id="feed-name" class="generator-input" value="Feed Name">
+                    
+                    <label class="generator-label">Feed Icon</label>
+                    <input type="text" id="feed-icon" class="generator-input" value="www.example.com/icon.png">
+                    
+                    <label class="generator-label">Feed Author</label>
+                    <input type="text" id="feed-author" class="generator-input" value="Your Name">
+                    
+                    <label class="generator-label">Feed Author URL</label>
+                    <input type="url" id="feed-author-src" class="generator-input" value="https://your-website.com/">
+                    
+                    <label class="generator-label">Updated Date</label>
+                    <input type="date" id="updated" class="generator-input" value="2026-04-25">
+                </div>
+
+                <div class="generator-section">
+                    <div class="btn-header">
+                        <h2>Tools List</h2>
+                        <div>
+                            <button type="button" id="toggle-all-btn" style="margin-right: 0.5rem;">Collapse All</button>
+                            <button type="button" id="add-tool-btn">+ Add Tool</button>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1.5rem;" id="tools-container"></div>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <pre id="json-output"></pre>
+        </div>
+    </div>
+
+</body>
+<footer>
+    <p>(c) 2026 <a href="https://nickfigner.com/">Nick Figner</a>. All rights reserved.</p>
+</footer>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'gatheredToolsDraft';
+    let toolsData = [];
+    let currentJSON = "";
+    let draggedItemIndex = null;
+
+    const defaultData = {
+        "feed-name": "Feed Name",
+        "feed-icon": "www.example.com/icon.png",
+        "feed-author": "Your Name",
+        "feed-author-src": "https://your-website.com/",
+        "updated": new Date().toISOString().split('T')[0],
+        "tooldata-version": "v2",
+        "tools": [{
+            id: "yourtool", name: "Your Tool", url: "https://yourtool.com", 
+            description: "This is a description of your tool. It should not contain any HTML, just plain text.", 
+            image: "www.example.com/yourtool-thumbnail.png", pricing: "free", highlight: false, 
+            tags: "add, tags, here, and, separate, with, commas"
+        }]
+    };
+
+    const toolsContainer = document.getElementById('tools-container');
+    const jsonOutput = document.getElementById('json-output');
+
+    function init() {
+        const cached = localStorage.getItem(LOCAL_STORAGE_KEY);
+        if (cached) {
+            try {
+                loadDataIntoForm(JSON.parse(cached));
+            } catch (e) {
+                console.error("Cache corrupted, loading defaults.", e);
+                loadDataIntoForm(defaultData);
+            }
+        } else {
+            loadDataIntoForm(defaultData);
+        }
+    }
+
+    function loadDataIntoForm(data) {
+        document.getElementById('tooldata-version').value = data["tooldata-version"] || "v2";
+        document.getElementById('feed-name').value = data["feed-name"] || "";
+        document.getElementById('feed-icon').value = data["feed-icon"] || "";
+        document.getElementById('feed-author').value = data["feed-author"] || "";
+        document.getElementById('feed-author-src').value = data["feed-author-src"] || "";
+        document.getElementById('updated').value = data["updated"] || "";
+
+        toolsData = (data.tools || []).map(t => ({
+            id: t.id || "",
+            name: t.name || "",
+            url: t.url || "",
+            description: t.description || "",
+            image: t.image || "",
+            pricing: t.pricing || "free",
+            highlight: t.highlight || false,
+            tags: Array.isArray(t.tags) ? t.tags.join(', ') : (t.tags || ""),
+            _expanded: t._expanded !== false // default to true
+        }));
+        renderTools();
+    }
+
+    function renderTools() {
+        toolsContainer.innerHTML = '';
+        toolsData.forEach((tool, index) => {
+            const toolDiv = document.createElement('div');
+            toolDiv.className = 'tool-editor-card';
+            toolDiv.draggable = true;
+            toolDiv.dataset.index = index;
+            
+            const cardTitle = tool.name ? tool.name : `New Tool ${index + 1}`;
+            const isExpanded = tool._expanded;
+            
+            toolDiv.innerHTML = `
+                <div class="tool-header" title="Drag to reorder, click to expand/collapse">
+                    <span class="drag-handle">⋮⋮</span>
+                    <span class="tool-title">${index + 1}. ${cardTitle}</span>
+                    <button type="button" class="tool-collapse-btn">
+                        ${isExpanded ? '▼' : '▶'}
+                    </button>
+                </div>
+                
+                <div class="tool-body ${isExpanded ? '' : 'collapsed'}">
+                    <label class="generator-label">ID (lowercase, no spaces)</label>
+                    <input type="text" class="generator-input tool-input" data-index="${index}" data-field="id" value="${tool.id}">
+                    
+                    <label class="generator-label">Name</label>
+                    <input type="text" class="generator-input tool-input name-input" data-index="${index}" data-field="name" value="${tool.name}">
+                    
+                    <label class="generator-label">URL</label>
+                    <input type="url" class="generator-input tool-input" data-index="${index}" data-field="url" value="${tool.url}">
+                    
+                    <label class="generator-label">Description</label>
+                    <textarea class="generator-input tool-input" data-index="${index}" data-field="description">${tool.description}</textarea>
+                    
+                    <label class="generator-label">Image Path</label>
+                    <input type="text" class="generator-input tool-input" data-index="${index}" data-field="image" value="${tool.image}">
+                    
+                    <label class="generator-label">Pricing</label>
+                    <select class="generator-input tool-input" data-index="${index}" data-field="pricing">
+                        <option value="free" ${tool.pricing === 'free' ? 'selected' : ''}>Free</option>
+                        <option value="paid" ${tool.pricing === 'paid' ? 'selected' : ''}>Paid</option>
+                    </select>
+
+                    <label class="generator-label">Tags (comma separated)</label>
+                    <input type="text" class="generator-input tool-input" data-index="${index}" data-field="tags" value="${tool.tags}" placeholder="e.g. art, design, library">
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="hl-${index}" class="tool-input" data-index="${index}" data-field="highlight" ${tool.highlight ? 'checked' : ''}>
+                        <label for="hl-${index}">Highlight Card</label>
+                    </div>
+
+                    <button type="button" class="btn-danger" onclick="removeTool(${index})">Remove Tool</button>
+                </div>
+            `;
+            
+            // Drag and Drop Events
+            toolDiv.addEventListener('dragstart', handleDragStart);
+            toolDiv.addEventListener('dragover', handleDragOver);
+            toolDiv.addEventListener('dragleave', handleDragLeave);
+            toolDiv.addEventListener('drop', handleDrop);
+            toolDiv.addEventListener('dragend', handleDragEnd);
+
+            // Expand/Collapse Events
+            const header = toolDiv.querySelector('.tool-header');
+            header.addEventListener('click', () => {
+                tool._expanded = !tool._expanded;
+                renderTools(); // Re-render to update UI cleanly
+            });
+
+            // Prevent input click from collapsing if clicking inside body
+            toolDiv.querySelector('.tool-body').addEventListener('click', (e) => e.stopPropagation());
+
+            toolsContainer.appendChild(toolDiv);
+        });
+        
+        attachToolListeners();
+        updateJSON();
+    }
+
+    // --- Drag and Drop Logic ---
+    function handleDragStart(e) {
+        draggedItemIndex = parseInt(this.dataset.index);
+        this.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+        // Required for Firefox
+        e.dataTransfer.setData('text/plain', draggedItemIndex); 
+    }
+
+    function handleDragOver(e) {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        const currentCard = this;
+        if (parseInt(currentCard.dataset.index) !== draggedItemIndex) {
+            currentCard.classList.add('drag-over');
+        }
+        return false;
+    }
+
+    function handleDragLeave(e) {
+        this.classList.remove('drag-over');
+    }
+
+    function handleDrop(e) {
+        e.stopPropagation();
+        this.classList.remove('drag-over');
+        
+        const targetIndex = parseInt(this.dataset.index);
+        if (draggedItemIndex !== null && draggedItemIndex !== targetIndex) {
+            // Reorder array
+            const itemToMove = toolsData.splice(draggedItemIndex, 1)[0];
+            toolsData.splice(targetIndex, 0, itemToMove);
+            renderTools();
+        }
+        return false;
+    }
+
+    function handleDragEnd(e) {
+        this.classList.remove('dragging');
+        document.querySelectorAll('.tool-editor-card').forEach(c => c.classList.remove('drag-over'));
+        draggedItemIndex = null;
+    }
+
+
+    // --- JSON & Input Logic ---
+    function syntaxHighlight(json) {
+        json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+            let cls = 'json-number';
+            if (/^"/.test(match)) {
+                if (/:$/.test(match)) { cls = 'json-key'; } else { cls = 'json-string'; }
+            } else if (/true|false/.test(match)) { cls = 'json-boolean'; } else if (/null/.test(match)) { cls = 'json-boolean'; }
+            return '<span class="' + cls + '">' + match + '</span>';
+        });
+    }
+
+    function updateJSON() {
+        const feedData = {
+            "feed-name": document.getElementById('feed-name').value,
+            "feed-icon": document.getElementById('feed-icon').value,
+            "feed-author": document.getElementById('feed-author').value,
+            "feed-author-src": document.getElementById('feed-author-src').value,
+            "updated": document.getElementById('updated').value,
+            "tooldata-version": document.getElementById('tooldata-version').value,
+            "tools": toolsData.map(t => ({
+                id: t.id,
+                name: t.name,
+                url: t.url,
+                description: t.description,
+                image: t.image,
+                pricing: t.pricing,
+                highlight: t.highlight,
+                tags: t.tags.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0)
+                // Note: _expanded is purposely left out of the mapped JSON
+            }))
+        };
+
+        currentJSON = JSON.stringify(feedData, null, 4);
+        jsonOutput.innerHTML = syntaxHighlight(currentJSON);
+        
+        // Cache data including UI state (_expanded) so it remembers on reload
+        const cacheData = { ...feedData, tools: toolsData }; 
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(cacheData));
+    }
+
+    document.getElementById('add-tool-btn').addEventListener('click', () => {
+        toolsData.push({ id: "", name: "", url: "", description: "", image: "", pricing: "free", highlight: false, tags: "", _expanded: true });
+        renderTools();
+        // Scroll to bottom to see new tool
+        setTimeout(() => window.scrollTo(0, document.body.scrollHeight), 50);
+    });
+
+    document.getElementById('toggle-all-btn').addEventListener('click', (e) => {
+        const isCollapsing = e.target.innerText === 'Collapse All';
+        toolsData.forEach(t => t._expanded = !isCollapsing);
+        e.target.innerText = isCollapsing ? 'Expand All' : 'Collapse All';
+        renderTools();
+    });
+
+    window.removeTool = function(index) {
+        toolsData.splice(index, 1);
+        renderTools();
+    };
+
+    function attachToolListeners() {
+        document.querySelectorAll('.tool-input').forEach(input => {
+            input.addEventListener('input', (e) => {
+                const index = e.target.getAttribute('data-index');
+                const field = e.target.getAttribute('data-field');
+                toolsData[index][field] = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+                
+                // Live update header title if name changes
+                if(field === 'name') {
+                    const headerTitle = e.target.closest('.tool-editor-card').querySelector('.tool-title');
+                    const newTitle = e.target.value ? e.target.value : `New Tool ${parseInt(index) + 1}`;
+                    headerTitle.textContent = `${parseInt(index) + 1}. ${newTitle}`;
+                }
+                
+                updateJSON();
+            });
+        });
+    }
+
+    ['tooldata-version', 'feed-name', 'feed-icon', 'feed-author', 'feed-author-src', 'updated'].forEach(id => {
+        document.getElementById(id).addEventListener('input', updateJSON);
+    });
+
+    // Toolbar logic
+    document.getElementById('download-btn').addEventListener('click', () => {
+        const blob = new Blob([currentJSON], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `gathered_tools_${new Date().toISOString().split('T')[0]}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('upload-btn').addEventListener('click', () => {
+        document.getElementById('upload-file').click();
+    });
+
+    document.getElementById('upload-file').addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            try {
+                const uploadedData = JSON.parse(event.target.result);
+                loadDataIntoForm(uploadedData);
+                e.target.value = ''; 
+            } catch (err) {
+                alert("Invalid JSON file. Please ensure it is formatted correctly.");
+            }
+        };
+        reader.readAsText(file);
+    });
+
+    document.getElementById('clear-cache-btn').addEventListener('click', () => {
+        if(confirm("Are you sure? This will wipe your saved draft and reset to default data.")){
+            localStorage.removeItem(LOCAL_STORAGE_KEY);
+            loadDataIntoForm(defaultData);
+        }
+    });
+
+    // Start App
+    init();
+</script>
+
+</html>

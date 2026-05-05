@@ -55,7 +55,7 @@ async function fetchAllFeeds(urls) {
 
             const data = await response.json();
 
-            if (data["tooldata-version"] === "v2") {
+            if (data["tooldata-version"] === "v2" || data["tooldata-version"] === "v3") {
                 // Attach _feedUrl to each tool for sorting later
                 const toolsWithFeed = data.tools.map(tool => ({ ...tool, _feedUrl: feedUrl }));
                 allTools = allTools.concat(toolsWithFeed);
@@ -458,7 +458,7 @@ async function addNewFeed() {
     try {
         const res = await fetch(url);
         const data = await res.json();
-        if (data["tooldata-version"] !== "v2") throw new Error("Not a v2 feed");
+        if (data["tooldata-version"] !== "v2" && data["tooldata-version"] !== "v3") throw new Error("Not a v2 or v3 feed");
 
         activeFeedUrls.push(url);
         localStorage.setItem('gathered_feeds_v2', JSON.stringify(activeFeedUrls));
