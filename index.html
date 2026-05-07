@@ -15,6 +15,30 @@
 
 
     <link rel="stylesheet" href="styles.css">
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCvOKc6MhebaVEAUq73rqnWn7efZFpaAPI",
+    authDomain: "gatheredtools.firebaseapp.com",
+    projectId: "gatheredtools",
+    storageBucket: "gatheredtools.firebasestorage.app",
+    messagingSenderId: "1028949072067",
+    appId: "1:1028949072067:web:3da7807f30196f34016a76",
+    measurementId: "G-ZKVMFCX8LM"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </head>
 
 <body>
@@ -24,13 +48,13 @@
     </div>
 
     <!-- One-time Video Popup -->
-        <div id="welcome-popup">
-            <div class="welcome-popup-inner">
-                <video id="welcome-video" src="data/gatheredtoolsv2.mp4" autoplay muted></video>
-                <button id="close-popup-btn">&times;</button>
+    <div id="welcome-popup">
+        <div class="welcome-popup-inner">
+            <video id="welcome-video" src="data/gatheredtoolsv2.mp4" autoplay muted></video>
+            <button id="close-popup-btn">&times;</button>
             <h2><br>Welcome to gathered.tools v2!</h2>
-            </div>
         </div>
+    </div>
 
     <header>
         <img src="data/logo.svg" alt="gathered.tools logo" class="logo">
@@ -46,10 +70,10 @@
     <div id="filter-container"></div>
 
     <main id="tools-grid">
-    
-    
+
+
     </main>
-    
+
 
 
     <div id="settings-modal">
@@ -87,47 +111,93 @@
                             <a href="https://nickfigner.com/projects/gathered-tools/">read the sotry</a><br><br>
                             All logos are properties of their respective owners.<br><br>
                             (c) 2026 Nick Figner. All rights reserved.</p>
+                        <h3>Version</h3>
+                        <p>Visit the <a href="https://nickfigner.com/changelog/#gatheredtools" target="_blank">change log</a>.</p>
+                        <p>gathered.tools version 2.0.1<br>Build time: <span id="build-time"></span></p>
+
+
+
+
+<script>
+
+  const build = new Date();
+
+  const timeString = build.toLocaleString(); // Shows "MM/DD/YYYY, HH:MM:SS"
+
+  document.getElementById('build-time').textContent = timeString;
+
+</script>
+
+
+        </div>
+    </div>
+
+    </div>
+
+    <!-- Add Feed Confirmation Modal -->
+
+    <div id="add-feed-confirmation" class="modal-overlay">
+        <div class="modal-content add-feed-confirmation-content">
+            <div class="modal-header">
+                <h2>Confirm Feed</h2>
+                <button class="close-popup-btn" onclick="closeAddFeedConfirmation()">&times;</button>
+            </div>
+            <div class="feed-confirmation-body">
+                <img id="confirm-feed-icon" src="data/fallback.jpg" alt="Feed icon" class="feed-confirmation-icon"
+                    onerror="this.src='data/fallback.jpg'">
+                <div class="feed-confirmation-details">
+                    <div class="feed-confirmation-name" id="confirm-feed-name">Feed Name</div>
+                    <div class="feed-confirmation-author">by <a id="confirm-feed-author" href="#"
+                            target="_blank">Author</a></div>
+                    <div class="feed-confirmation-url"><a id="confirm-feed-url" href="#" target="_blank"></a></div>
+                    <div class="feed-confirmation-version" id="confirm-feed-version"></div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button onclick="confirmAddFeed()">Add Feed</button>
+                <button class="secondary" onclick="closeAddFeedConfirmation()">Cancel</button>
+            </div>
         </div>
     </div>
 
     <script src="parser.js"></script>
-<script>
-// --- One-time Video Popup Logic ---
-function showWelcomePopupIfNeeded() {
-    if (localStorage.getItem('welcome_popup_shown')) return;
-    var popup = document.getElementById('welcome-popup');
-    var closeBtn = document.getElementById('close-popup-btn');
-    var vid = document.getElementById('welcome-video');
-    if (!popup || !closeBtn || !vid) return;
+    <script>
+        // --- One-time Video Popup Logic ---
+        function showWelcomePopupIfNeeded() {
+            if (localStorage.getItem('welcome_popup_shown')) return;
+            var popup = document.getElementById('welcome-popup');
+            var closeBtn = document.getElementById('close-popup-btn');
+            var vid = document.getElementById('welcome-video');
+            if (!popup || !closeBtn || !vid) return;
 
-    // Helper to close popup and set flag
-    function closePopup() {
-        popup.style.display = 'none';
-        document.body.style.overflow = '';
-        localStorage.setItem('welcome_popup_shown', '1');
-    }
+            // Helper to close popup and set flag
+            function closePopup() {
+                popup.style.display = 'none';
+                document.body.style.overflow = '';
+                localStorage.setItem('welcome_popup_shown', '1');
+            }
 
-    // Remove any previous event listeners (defensive)
-    closeBtn.onclick = null;
-    vid.onended = null;
-    popup.onclick = null;
+            // Remove any previous event listeners (defensive)
+            closeBtn.onclick = null;
+            vid.onended = null;
+            popup.onclick = null;
 
-    // Show popup
-    popup.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+            // Show popup
+            popup.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
 
-    // Bind close actions
-    closeBtn.onclick = closePopup;
-    vid.onended = closePopup;
-    popup.onclick = function(e) {
-        if (e.target === popup) closePopup();
-    };
+            // Bind close actions
+            closeBtn.onclick = closePopup;
+            vid.onended = closePopup;
+            popup.onclick = function (e) {
+                if (e.target === popup) closePopup();
+            };
 
-    // Start video from beginning
-    vid.currentTime = 0;
-    vid.play();
-}
-</script>
+            // Start video from beginning
+            vid.currentTime = 0;
+            vid.play();
+        }
+    </script>
 </body>
 <footer>
     <p>(c) 2026 <a href="https://nickfigner.com/">Nick Figner</a>. All rights reserved.</p>

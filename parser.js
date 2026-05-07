@@ -8,6 +8,8 @@ let allLoadedTools = [];
 let activeFilter = null; // kept for compatibility (not used for tags now)
 let activeTags = []; // array of selected tags, most-recent-first
 let activePricing = null;
+let pendingFeedUrl = null;
+let pendingFeedMeta = null;
 
 // --- CORE LOGIC ---
 async function initApp() {
@@ -28,6 +30,7 @@ async function initApp() {
 
     renderTools();
     renderSettingsList();
+    await handleAddFeedQuery();
 
     // Hide loading screen smoothly
     loadingScreen.style.opacity = '0';
@@ -448,16 +451,30 @@ function renderSettingsList() {
 }
 
 // --- USER ACTIONS ---
+async function fetchFeedData(url) {
+    try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`Fetch failed (${res.status})`);
+        return await res.json();
+    } catch (err) {
+        // Fallback via anonymous proxy for CORS / host restrictions.
+        const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+        const proxyRes = await fetch(proxyUrl);
+        if (!proxyRes.ok) throw err;
+        const text = await proxyRes.text();
+        return JSON.parse(text);
+    }
+}
+
 async function addNewFeed() {
     const input = document.getElementById('new-feed-url');
-    const url = input.value.trim();
+    const url = normalizeFeedUrl(input.value.trim());
 
     if (!url) return alert("Please enter a URL");
     if (activeFeedUrls.includes(url)) return alert("Feed already active!");
 
     try {
-        const res = await fetch(url);
-        const data = await res.json();
+        const data = await fetchFeedData(url);
         if (data["tooldata-version"] !== "v2" && data["tooldata-version"] !== "v3") throw new Error("Not a v2 or v3 feed");
 
         activeFeedUrls.push(url);
@@ -467,7 +484,93 @@ async function addNewFeed() {
         // Completely re-initialize the app when a new feed is added
         initApp();
     } catch (err) {
-        alert("Invalid feed! Make sure it is a valid tool data v2 JSON URL.");
+        console.error('Feed add failed:', err);
+        alert("Invalid feed! Make sure it is a valid tool data v2 JSON URL and accessible from your browser.");
+    }
+}
+
+function normalizeFeedUrl(feedUrl) {
+    if (!feedUrl) return feedUrl;
+    const trimmed = feedUrl.trim();
+    if (/^https?:\/\//i.test(trimmed)) return trimmed;
+    if (/^\/\//.test(trimmed)) return window.location.protocol + trimmed;
+    if (/^[./]/.test(trimmed)) return trimmed;
+    return `https://${trimmed}`;
+}
+
+function clearAddFeedQueryParam() {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('addfeed');
+    url.searchParams.delete('addfeedur');
+    url.searchParams.delete('addfeedurl');
+    window.history.replaceState({}, document.title, url.pathname + url.search);
+}
+
+function showAddFeedConfirmation(meta) {
+    const modal = document.getElementById('add-feed-confirmation');
+    if (!modal) return;
+
+    document.getElementById('confirm-feed-icon').src = meta.icon || 'data/fallback.jpg';
+    document.getElementById('confirm-feed-name').textContent = meta.name || 'Unknown Feed';
+    const authorEl = document.getElementById('confirm-feed-author');
+    authorEl.textContent = meta.author || 'Unknown author';
+    authorEl.href = meta.authorSrc || '#';
+    document.getElementById('confirm-feed-url').textContent = meta.url;
+    document.getElementById('confirm-feed-url').href = meta.url;
+    document.getElementById('confirm-feed-version').textContent = `Format: ${meta.version || 'unknown'}`;
+
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeAddFeedConfirmation() {
+    const modal = document.getElementById('add-feed-confirmation');
+    if (!modal) return;
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+    pendingFeedUrl = null;
+    pendingFeedMeta = null;
+    clearAddFeedQueryParam();
+}
+
+async function confirmAddFeed() {
+    if (!pendingFeedUrl) return closeAddFeedConfirmation();
+    activeFeedUrls.push(pendingFeedUrl);
+    localStorage.setItem('gathered_feeds_v2', JSON.stringify(activeFeedUrls));
+    closeAddFeedConfirmation();
+    await initApp();
+}
+
+async function handleAddFeedQuery() {
+    const searchParams = new URLSearchParams(window.location.search);
+    const rawFeedUrl = searchParams.get('addfeed') || searchParams.get('addfeedur') || searchParams.get('addfeedurl');
+    if (!rawFeedUrl) return;
+
+    const feedUrl = normalizeFeedUrl(rawFeedUrl);
+    if (activeFeedUrls.includes(feedUrl)) {
+        alert('This feed is already active.');
+        clearAddFeedQueryParam();
+        return;
+    }
+
+    try {
+        const data = await fetchFeedData(feedUrl);
+        if (data["tooldata-version"] !== "v2" && data["tooldata-version"] !== "v3") throw new Error('Not a v2 or v3 feed');
+
+        pendingFeedUrl = feedUrl;
+        pendingFeedMeta = {
+            url: feedUrl,
+            icon: data['feed-icon'] || 'data/fallback.jpg',
+            name: data['feed-name'] || 'Unknown Feed',
+            author: data['feed-author'] || 'Unknown author',
+            authorSrc: data['feed-author-src'] || '#',
+            version: data['tooldata-version']
+        };
+        showAddFeedConfirmation(pendingFeedMeta);
+    } catch (err) {
+        console.error('Feed preview failed:', err);
+        alert('Unable to preview this feed. Please check the URL and make sure it is a valid v2/v3 feed.');
+        clearAddFeedQueryParam();
     }
 }
 

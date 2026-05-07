@@ -309,6 +309,99 @@ button:active {
     transform: translateY(0) scale(1);
 }
 
+
+
+/* Add Feed Confirmation Popup */
+
+
+
+#add-feed-confirmation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 105;
+}
+
+#add-feed-confirmation.show {
+    display: flex;
+}
+
+.add-feed-confirmation-content {
+    width: 90%;
+    max-width: 520px;
+    padding: 1.8rem;
+}
+
+.feed-confirmation-body {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.feed-confirmation-icon {
+    width: 82px;
+    height: 82px;
+    border-radius: 18px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--bg-color);
+}
+
+.feed-confirmation-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.feed-confirmation-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.feed-confirmation-author,
+.feed-confirmation-url,
+.feed-confirmation-version {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.feed-confirmation-author a,
+.feed-confirmation-url a {
+    color: var(--text-main);
+    text-decoration: underline;
+}
+
+.close-popup-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+}
+
+.modal-actions .secondary {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.modal-actions button {
+    min-width: 120px;
+}
+
 /* Tag selector (top) */
 .tag-selector {
     display: flex;
