@@ -84,7 +84,7 @@
             </div>
 
             <h3>Active Feeds</h3>
-            <p>For default feed use <i>data/v2.json</i></p><br>
+            <p>Removed default feed?  <a href="/?addfeed=https://gathered.tools/data/v2.json"><i>Add it back</i></a></p><br>
             <div id="feeds-list">
             </div>
 
@@ -112,21 +112,20 @@
                             All logos are properties of their respective owners.<br><br>
                             (c) 2026 Nick Figner. All rights reserved.</p>
                         <h3>Version</h3>
-                        <p>Visit the <a href="https://nickfigner.com/changelog/#gatheredtools" target="_blank">change log</a>.</p>
-                        <p>gathered.tools version 2.0.1<br>Build time: <span id="build-time"></span></p>
+                        <p>Visit the <a href="https://nickfigner.com/changelog/#gatheredtools" target="_blank">change
+                                log</a>.</p>
+                        <p>gathered.tools version 2.0.2<br>Build time: <span id="build-time"></span></p>
 
 
 
 
-<script>
+                        <script>
+                            const build = new Date();
 
-  const build = new Date();
+                            const timeString = build.toLocaleString(); // Shows "MM/DD/YYYY, HH:MM:SS"
 
-  const timeString = build.toLocaleString(); // Shows "MM/DD/YYYY, HH:MM:SS"
-
-  document.getElementById('build-time').textContent = timeString;
-
-</script>
+                            document.getElementById('build-time').textContent = timeString;
+                        </script>
 
 
         </div>
@@ -139,8 +138,8 @@
     <div id="add-feed-confirmation" class="modal-overlay">
         <div class="modal-content add-feed-confirmation-content">
             <div class="modal-header">
-                <h2>Confirm Feed</h2>
-                <button class="close-popup-btn" onclick="closeAddFeedConfirmation()">&times;</button>
+                <h2>Add Feed</h2>
+                <a class="close-popup-btn" onclick="closeAddFeedConfirmation()"><img src="data/close.svg" class="icon-buttons"></a>
             </div>
             <div class="feed-confirmation-body">
                 <img id="confirm-feed-icon" src="data/fallback.jpg" alt="Feed icon" class="feed-confirmation-icon"
@@ -154,8 +153,8 @@
                 </div>
             </div>
             <div class="modal-actions">
-                <button onclick="confirmAddFeed()">Add Feed</button>
-                <button class="secondary" onclick="closeAddFeedConfirmation()">Cancel</button>
+                <button class="open-btn" class="secondary" onclick="closeAddFeedConfirmation()">Cancel</button>
+                <button class="open-btn primary-btn" onclick="confirmAddFeed()">Add Feed</button>
             </div>
         </div>
     </div>
